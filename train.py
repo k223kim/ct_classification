@@ -5,13 +5,13 @@ import subprocess
 import numpy as np                
 import torch
 import time
-from opts import parse_opts
+from options.train_options import TrainOptions
 from data import create_dataset
 from model import generate_model
 from utils import AverageMeter, Logger, calculate_accuracy, check_path
 
 if __name__=="__main__":
-    opt = parse_opts()
+    opt = TrainOptions().parse()
     opt.device = torch.device(f'cuda:{opt.device_num}' if not opt.no_cuda else 'cpu')
     if not opt.no_train:
         train_dataloader = create_dataset('train', opt)
