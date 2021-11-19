@@ -5,16 +5,34 @@ The code is based on https://github.com/kenshohara/3D-ResNets-PyTorch and has be
 
 Since CT does not have RGB channels, the following argument is needed `--n_input_channels 1`
 
-The following command is used for training tcia datset
-
-`python train.py --rootpath='/home/kaeunkim/tcia_ct_npz/ct_classification/' --model='resnet' --model_depth=50 --experiment resnet_test --result_path='/home/kaeunkim/classification/ct_classification/checkpoints/' --n_input_channels 1 --n_classes=4 --tensorboard`
-
 ## 1. Task 1
 Using TCIA dataset and its clinical data, predict the T_stage of the patient (Classification).
+
+  **Dataset**: The CT dicom images were stacked per patient and that stack was converted to .npz. The `TCIADataset` class was assumed the following file structure.
+```
+.
+├── ct_classification
+│   ├── train
+│   │   ├── t_stage_1
+│   │   │   ├── patient1.npz
+│   │   │   ├── patient2.npz
+│   │   │   ├── ...
+│   │   ├── t_stage_2
+│   │   │   ├── patient3.npz
+│   │   │   ├── patient4.npz
+│   │   │   ├── ...
+│   │   ├── ...
+│   ├── val
+│   ├── test
+```
 
   **Input**: 3D CT data per patient
   
   **Label**: the T_stage of the patient
+  
+  **Train** : The following command is used for training for this task
+  
+`python train.py --rootpath='/home/kaeunkim/tcia_ct_npz/ct_classification/' --model='resnet' --model_depth=50 --experiment resnet_test --result_path='/home/kaeunkim/classification/ct_classification/checkpoints/' --n_input_channels 1 --n_classes=4 --tensorboard`
   
   **Output**:
   
