@@ -1,14 +1,7 @@
-# ct_classification
-3D CT classification using TCIA dataset
-
-The code is based on https://github.com/kenshohara/3D-ResNets-PyTorch and has been revised to accommodate general datasets and different 3D CNN models.
-
-Since CT does not have RGB channels, the following argument is needed `--n_input_channels 1`
-
 ## 1. Task 1
 Using TCIA dataset and its clinical data, predict the T_stage of the patient (Classification).
 
-  **Dataset**: The CT dicom images were stacked per patient and that stack was converted to .npz. The `TCIADataset` class was assumed the following file structure.
+  **Dataset**: The CT dicom images were stacked per patient and that stack was converted to .npz. The `TCIADataset` class expects the following file structure.For the `--rootpath` argument, the path to the root of the dataset (in this case, '/home/kaeunkim/tcia_ct_npz/ct_classification/') that contains the train, val, and test folders is expected.
 ```
 .
 ├── ct_classification
@@ -45,6 +38,3 @@ Using TCIA dataset and its clinical data, predict the T_stage of the patient (Cl
   **Conclusion:**
   
   The task is too difficult as the nodule that affects the T_stage is too small compared to the entire 3D CT data. Therefore, validation accuracy was higher than training accuracy and when performing inferences, it was outputing the same result (shown above).
-  
-## 2. Task 2
-Using TCIA dataset, its clinical dataset, and its nodule annotation data, predict the T_stage of the patient (Classification).
