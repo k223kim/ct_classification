@@ -25,7 +25,7 @@ Using TCIA dataset and its clinical data, predict the T_stage of the patient (Cl
   
   **Train** : The following command is used for training for this task
   
-`python train.py --rootpath='/home/kaeunkim/tcia_ct_npz/ct_classification/' --model='resnet' --model_depth=50 --experiment resnet_test --result_path='/home/kaeunkim/classification/ct_classification/checkpoints/' --n_input_channels 1 --n_classes=4 --tensorboard`
+`python train.py --rootpath='/home/kaeunkim/tcia_ct_npz/ct_classification/' --model='resnet' --model_depth=50 --experiment resnet_test --result_path='/home/kaeunkim/classification/ct_classification/data_in_folder/checkpoints/' --n_input_channels 1 --n_classes=4 --tensorboard`
   
   **Output**:
   
